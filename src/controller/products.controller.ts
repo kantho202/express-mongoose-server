@@ -2,13 +2,18 @@ import { Request, Response } from 'express';
 import {  products } from '../model/products.model';
 
 
-// Create event
- const createEvent = async (req: Request, res: Response) => {
+// Create single or multiple products
+const createEvent = async (req: Request, res: Response) => {
   try {
-    const savedEvent = await products.create(req.body);
+    const body = req.body;
+    // support both { products: [...] } and a single object or array
+    const data = body.products ?? (Array.isArray(body) ? body : body);
+    const savedEvent = Array.isArray(data)
+      ? await products.insertMany(data)
+      : await products.create(data);
     res.status(201).json({
       success: true,
-      message: 'Event created successfully',
+      message: 'Product(s) created successfully',
       data: savedEvent,
     });
   } catch (err: any) {
