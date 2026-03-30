@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 import { Event } from '../model/event.model';
-// import { Event } from '../models/event.model';
+
 
 // Create event
  const createEvent = async (req: Request, res: Response) => {

@@ -2,15 +2,13 @@ import express from 'express';
 import { EventRoutes } from './event.routes';
 import { UserRoutes } from './user.routes';
 import { AiRoutes } from './ai.routes';
-// import { AiRoutes } from './ai.route';
-// import { EventRoutes } from './event.route';
-// import { UserRoutes } from './user.route';
+
 
 const router = express.Router();
 
 const moduleRoutes = [
   {
-    path: '/events',
+    path: '/products',
     route: EventRoutes,
   },
   {

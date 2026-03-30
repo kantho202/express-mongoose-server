@@ -1,5 +1,6 @@
 import cors from 'cors';
 import express, { Application, Request, Response } from 'express';
+import router from './routes';
 // import router from './routes';
 
 const app: Application = express();
@@ -9,11 +10,11 @@ app.use(express.json());
 app.use(cors());
 
 // Application routes
-// app.use('/api/v1', router);
+app.use('/api/v1', router);
 
 // Testing route
 app.get('/', (req: Request, res: Response) => {
-  res.send('Event Management Server is running!');
+  res.send('E-Commerce Server is running!');
 });
 
 // Not found route
