@@ -13,4 +13,4 @@ const eventSchema = new Schema<IEvent>({
   timestamps: true,
 });
 
-export const Event = model<IEvent>('products', eventSchema, 'products');
+export const products = model<IEvent>('products', eventSchema, 'products');
